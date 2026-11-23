@@ -9,8 +9,14 @@ terraform {
 
 provider "cloudflare" {}
 
-variable "account_id" { type = string }
-variable "zone_id" { type = string }
+variable "account_id" { 
+  type = string 
+  sensitive = true
+}
+variable "zone_id" { 
+  type = string 
+  sensitive = true
+}
 
 resource "cloudflare_workers_script"  site {
   account_id = var.account_id
